@@ -1,10 +1,7 @@
 from django.urls import include, path
-from rest_framework.authtoken import views
 from rest_framework.routers import DefaultRouter
-from rest_framework_simplejwt.views import (TokenObtainPairView,
-                                            TokenRefreshView)
 
-from .views import CommentViewSet, FollowViewSet, GroupViewSet, PostViewSet
+from api.views import CommentViewSet, FollowViewSet, GroupViewSet, PostViewSet
 
 router_ver1 = DefaultRouter()
 router_ver1.register(
@@ -28,5 +25,4 @@ router_ver1.register(
 urlpatterns = [
     path('v1/', include(router_ver1.urls)),
     path('v1/', include('djoser.urls.jwt')),
-
 ]
