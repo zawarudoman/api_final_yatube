@@ -1,18 +1,18 @@
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters, viewsets
+from rest_framework import filters
+from rest_framework.mixins import (CreateModelMixin, DestroyModelMixin,
+                                   ListModelMixin, RetrieveModelMixin,
+                                   UpdateModelMixin)
 from rest_framework.pagination import LimitOffsetPagination
-from rest_framework.permissions import (IsAuthenticated,
-                                        IsAuthenticatedOrReadOnly,
-                                        AllowAny)
+from rest_framework.permissions import (AllowAny,
+                                        IsAuthenticatedOrReadOnly)
 from rest_framework.viewsets import GenericViewSet
-from rest_framework.mixins import ListModelMixin, CreateModelMixin, RetrieveModelMixin, UpdateModelMixin, \
-    DestroyModelMixin
 
 from api.permission import IsOwnerOrReadOnly
 from api.serializers import (CommentSerializer, FollowSerializer,
                              GroupSerializer, PostSerializer)
-from posts.models import Group, Post, User
+from posts.models import Group, Post
 
 
 class PostViewSet(ListModelMixin,
