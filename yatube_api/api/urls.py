@@ -21,8 +21,15 @@ router_ver1.register(
     basename='comment'
 )
 
+urlpatterns_ver1 = [
+    path('', include(router_ver1.urls)),
+]
+
+urlpatterns_jwt = [
+    path('', include('djoser.urls.jwt')),
+]
 
 urlpatterns = [
-    path('v1/', include(router_ver1.urls)),
-    path('v1/', include('djoser.urls.jwt')),
+    path('v1/', include(urlpatterns_ver1)),
+    path('v1/', include(urlpatterns_jwt)),
 ]
