@@ -23,13 +23,10 @@ router_ver1.register(
 
 urlpatterns_ver1 = [
     path('', include(router_ver1.urls)),
-]
-
-urlpatterns_jwt = [
     path('', include('djoser.urls.jwt')),
 ]
 
+
 urlpatterns = [
     path('v1/', include(urlpatterns_ver1)),
-    path('v1/', include(urlpatterns_jwt)),
 ]

@@ -83,4 +83,4 @@ class Follow(models.Model):
         ]
 
     def __str__(self):
-        return self.following, self.user
+        return '{} подписан на {}'.format(self.following, self.user)
